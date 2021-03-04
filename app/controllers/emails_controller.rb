@@ -10,6 +10,14 @@ class EmailsController < ApplicationController
 
   # GET /emails/1 or /emails/1.json
   def show
+    puts "-----------------------"
+    puts @email
+    puts @email.id
+    puts "-----------------------"
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { }
+    end
   end
 
   # GET /emails/new
@@ -57,6 +65,7 @@ class EmailsController < ApplicationController
   def destroy
     @email.destroy
     respond_to do |format|
+      format.js { }
       format.html { redirect_to emails_url, notice: "Email was successfully destroyed." }
       format.json { head :no_content }
     end

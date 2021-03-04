@@ -9,6 +9,8 @@
   <strong>Body:</strong>
   <%= @email.body %>
 </p>
+<%= button_to 'Supprimer', {:controller => "emails", :action => "destroy"}, class: 'btn btn-outline-primary', :method=>:get, remote: true %>
+<%= button_to 'Marquer comme non lu', {:controller => "emails", :action => "create"}, class: 'btn btn-outline-primary', :method=>:post, remote: true %>
 
 <%= link_to 'Edit', edit_email_path(@email) %> |
 <%= link_to 'Back', emails_path %>

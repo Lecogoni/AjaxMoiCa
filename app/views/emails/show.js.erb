@@ -1,0 +1,20 @@
+
+listEmail  = document.querySelectorAll('#my-email > *');
+thisEmail = document.querySelector("#email" + <%= @email.id %>);
+
+listEmail.forEach(n => n.classList.remove("btn-warning"));
+
+emailContent = document.getElementById("email-show");
+
+if (emailContent.childElementCount == 0){
+  emailContent.insertAdjacentHTML("beforeend", "<%= j render 'show_email', email: @email %>");
+  thisEmail.classList.add("btn-warning");
+} else {
+  emailContent.removeChild(emailContent.childNodes[1]); 
+  emailContent.insertAdjacentHTML("beforeend", "<%= j render 'show_email', email: @email %>");
+  thisEmail.classList.add("btn-warning");
+};
+
+
+
+

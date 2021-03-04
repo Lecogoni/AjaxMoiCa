@@ -1,0 +1,7 @@
+<div class="card p-5" id="email-chosen">
+    <h5 class="card-title"><%= @email.object %></h5>
+    <p class="card-text"><%= @email.body %></p>
+    <p id="email-status" class="card-text"><%= @email.read %></p>
+    <a href="#" class="btn btn-outline-secondary">Marquer comme non lu</a>
+    <%= link_to "Supprimer", email_path(), method: :delete, :data => {:confirm => "êtes vous sur?"}, class: "btn btn-ouline-danger", remote: true %>
+  </div>
