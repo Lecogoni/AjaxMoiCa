@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="container">
+<h1>Emails</h1>
+
+<%= button_to 'Receive an email', {:controller => "emails", :action => "create"}, class: 'btn btn-outline-primary', :method=>:post, remote: true %>
+
+<br>
+<br>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Object</th>
+        <th scope="col">Body</th>
+        <th scope="col">Show</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+
+    <tbody id="my-email">
+      <% @emails.each do |email| %>
+        <tr id="my-email">
+          <td><%= email.object %></td>
+          <td><%= email.body %></td>
+          <td><%= link_to 'Show', email %></td>
+          <td><%= link_to 'Edit', edit_email_path(email) %></td>
+          <td><%= link_to 'Destroy', email, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'New Email', new_email_path %>
+</div>
+<br>
+

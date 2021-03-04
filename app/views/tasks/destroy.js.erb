@@ -1,3 +1,5 @@
-alert('task detruite')
 
-delete<%= document.getElementById('#task-'+'<%= @task.id %>') %>.remove();
+let  delete<%= @task.id %> = document.querySelector("#task" + <%= @task.id %>);
+console.log(delete<%= @task.id %>);
+
+delete<%= @task.id %>.remove();
