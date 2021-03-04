@@ -1,41 +1,44 @@
 <p id="notice"><%= notice %></p>
 
 
+
+
 <div class="container">
-<h1>Emails</h1>
+  <h1>Emails</h1>
 
-<%= button_to 'Receive an email', {:controller => "emails", :action => "create"}, class: 'btn btn-outline-primary', :method=>:post, remote: true %>
+  <%= button_to 'Receive an email', {:controller => "emails", :action => "create"}, class: 'btn btn-outline-primary', :method=>:post, remote: true %>
 
-<br>
-<br>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Object</th>
-        <th scope="col">Edit</th>
-        <th scope="col">Delete</th>
-
-        <th scope="col">Body</th>
-      </tr>
-    </thead>
-
-    <tbody id="my-email">
-      <% @emails.each do |email| %>
-        <tr id="my-email">
-          <td><%= link_to email.object, email %></td>
-
-          <td><%= link_to 'Edit', edit_email_path(email) %></td>
-          <td><%= link_to 'Destroy', email, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-          <td id="email-content"></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
+  <br>
+  <br>
 </div>
-<br>
 
 
+
+<!--DIV-->
+
+  <div class="container">
+      <div class="row">
+
+        <div class="col-md-5">
+          <h1>email List</h1>
+          <ul id="my-email">
+            <% @emails.each do |email| %>
+              <li>
+                <%= link_to email.object, email %>
+              </li>
+            <% end %>
+          </ul>    
+        </div>
+
+        <div class="col-md-7">
+          <h1>email Content</h1>
+          <div id="email-content">
+            <p>ceci est le contenu</p>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
 
 

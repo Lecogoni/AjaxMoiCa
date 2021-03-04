@@ -1,0 +1,33 @@
+<!--SECOND TABLEAU - THE ORIGINAL-->
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Object</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+
+        <th scope="col">Body</th>
+      </tr>
+    </thead>
+    <tbody  id="my-email">
+      <% @emails.each do |email| %>
+        <tr>
+          <td><%= link_to email.object, email %></td>
+
+          <td><%= link_to 'Edit', edit_email_path(email) %></td>
+          <td><%= link_to 'Destroy', email, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+          <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<!--PARTIAL -->
+
+<td><%= link_to email.object, email %></td>
+<td><%= link_to 'Edit', edit_email_path(email) %></td>
+<td><%= link_to 'Destroy', email, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<td id="email-content"></td>
